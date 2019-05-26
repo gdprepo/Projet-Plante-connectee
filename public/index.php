@@ -9,7 +9,7 @@ try {
         die();
 }
 
-$spawnRepository = new \Plante\PlanteRepository($dbh);
+$planteRepository = new \Plante\PlanteRepository($dbh);
 $plante = $planteRepository->fetchAll();
 $plante["plante"] = $plante;
 
