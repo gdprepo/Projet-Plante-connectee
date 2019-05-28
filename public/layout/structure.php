@@ -12,16 +12,7 @@ function loadStructure($page, $title, $data) {
         <?php include_once "header.php"?>
         <div class="container-fluid main-container">
           <div class="row">
-            <div class="col-md-3">
-              <div class="card">
-                <div class="card-body">
-                  <h1 class="card-title">BDD Plante</h1>
-                  <div class="admin-mode" style="display:none;">
 
-                  </div>
-                </div>
-              </div>
-            </div>
             <div>
               <button id="demo" onclick="toggleAdmin()" type="button" class="btn btn-dark btn-admin">Modifier la BDD</button>
             </div>

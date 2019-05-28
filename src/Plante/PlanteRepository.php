@@ -36,7 +36,21 @@ class PlanteRepository {
 
     public function update(array $data) {
         try {
-            $stmt = $this->dbh->prepare('UPDATE plante SET name = " '.$_POST['name'].' ", picture_url = " '.$_POST['picture_url'].' " WHERE id=" '.$_POST['id'].' "');
+            $stmt = $this->dbh->prepare('UPDATE plante SET name = " '.$_POST['name'].' " WHERE id= " '.$_POST['id'].' "');
+            var_dump($stmt->execute());
+            $stmt = $this->dbh->prepare('UPDATE plante SET categorie = " '.$_POST['categorie'].' " WHERE id= " '.$_POST['id'].' "');
+            var_dump($stmt->execute());
+            $stmt = $this->dbh->prepare('UPDATE plante SET description = " '.$_POST['description'].' " WHERE id= " '.$_POST['id'].' "');
+            var_dump($stmt->execute());
+            $stmt = $this->dbh->prepare('UPDATE plante SET picture_url = " '.$_POST['picture_url'].' " WHERE id= " '.$_POST['id'].' "');
+            var_dump($stmt->execute());
+            $stmt = $this->dbh->prepare('UPDATE plante SET humydite = " '.$_POST['humydite'].' " WHERE id= " '.$_POST['id'].' "');
+            var_dump($stmt->execute());
+            $stmt = $this->dbh->prepare('UPDATE plante SET temperature = " '.$_POST['temperature'].' " WHERE id= " '.$_POST['id'].' "');
+            var_dump($stmt->execute());
+            $stmt = $this->dbh->prepare('UPDATE plante SET luminosite = " '.$_POST['luminosite'].' " WHERE id= " '.$_POST['id'].' "');
+            var_dump($stmt->execute());
+            $stmt = $this->dbh->prepare('UPDATE plante SET periode = " '.$_POST['periode'].' " WHERE id= " '.$_POST['id'].' "');
             var_dump($stmt->execute());
         } catch (\Exception $e) {
             var_dump($e); exit;

@@ -1,6 +1,6 @@
 <ul class="list-group">
     <?php foreach ($data["plante"] as $projet): ?>
-    <li class="">
+    <li style="list-style-type: none;" class="">
         <div class="card" style="padding:5px; margin-bottom:50px;">
             <h5 class="card-header"><?php echo $projet["id"];?> - <?php echo $projet["name"]; ?></h5>
             <div class="card-body">
@@ -12,11 +12,12 @@
                 <p class="card-text" style="text-align:left; margin-top:10px;">Humydite : <?php echo $projet["humydite"]; ?> %</p>
                 <p class="card-text" style="text-align:left; margin-top:10px;">Temperature : <?php echo $projet["temperature"]; ?> °C</p>
                 <p class="card-text" style="text-align:left; margin-top:10px;">Luminosite : <?php echo $projet["luminosite"]; ?> %</p>
+                <p class="card-text" style="text-align:left; margin-top:10px;">Periode : <?php echo $projet["periode"]; ?> semaine(s)</p>
                 <a href="www.google.com" class="btn btn-primary" style="width:180px; margin-right:5%; margin-left:auto; margin-top:15px;">Lien</a>
             </div>
         </div>
     </li>
-    <li class="admin-mode <?php echo "form-projet-row-" . $projet["id"] ?>">
+    <li style="list-style-type: none;" class="admin-mode <?php echo "form-projet-row-" . $projet["id"] ?>">
         <div class="card-body">
             <form action="/editProjet.php" method="post" class="form-inline">
                 <input type="hidden" name="id" value= <?php echo $projet["id"]?> />
@@ -26,25 +27,25 @@
                             <input placeholder="Titre" type="text" name="name" value="<?php echo $projet["name"]; ?>">
                         </div>
                         <div class="col-md-4">
-                            <input placeholder="Lien Image" type="text" name="categorie" value="<?php echo $projet["categorie"]; ?>">
+                            <input placeholder="Categorie" type="text" name="categorie" value="<?php echo $projet["categorie"]; ?>">
                         </div>
                         <div class="col-md-3">
-                            <input placeholder="Logiciel" type="text" name="description" value="<?php echo $projet["description"]; ?>">
+                            <input placeholder="Description" type="text" name="description" value="<?php echo $projet["description"]; ?>">
                         </div>
                         <div style="margin-top: 10px;" class="col-md-4">
-                            <input placeholder="Lien Projet" type="text" name="picture_url" value="<?php echo $projet["picture_url"]; ?>">
-                        </div>
-                        <div class="col-md-3">
-                            <input placeholder="Logiciel" type="text" name="description" value="<?php echo $projet["humydite"]; ?>">
+                            <input placeholder="Lien Photo" type="text" name="picture_url" value="<?php echo $projet["picture_url"]; ?>">
                         </div>
                         <div style="margin-top: 10px;" class="col-md-4">
-                            <input placeholder="Lien Projet" type="text" name="picture_url" value="<?php echo $projet["temperature"]; ?>">
+                            <input placeholder="Humydite" type="text" name="humydite" value="<?php echo $projet["humydite"]; ?>">
                         </div>
-                        <div class="col-md-3">
-                            <input placeholder="Logiciel" type="text" name="luminosite" value="<?php echo $projet["luminosite"]; ?>">
+                        <div style="margin-top: 10px;" class="col-md-3">
+                            <input placeholder="Temperature" type="text" name="temperature" value="<?php echo $projet["temperature"]; ?>">
+                        </div>
+                        <div class="col-md-4">
+                            <input placeholder="Luminosite" type="text" name="luminosite" value="<?php echo $projet["luminosite"]; ?>">
                         </div>
                         <div style="margin-top: 10px;" class="col-md-4">
-                            <input placeholder="Lien Projet" type="text" name="periode" value="<?php echo $projet["periode"]; ?>">
+                            <input placeholder="Periode" type="text" name="periode" value="<?php echo $projet["periode"]; ?>">
                         </div>
                         <div style="margin-left: 30%;" class="col-md-2">
                             <button style="width: 100%;" class="btn btn-danger" type="submit" value="Ok">Ok</button>
@@ -65,16 +66,28 @@
                 <div class="container" style="margin: 10px">
                     <div class="row">
                         <div class="col-md-6">
-                            <input placeholder="Titre" type="text" name="title">
+                            <input placeholder="Titre" type="text" name="name">
                         </div>
                         <div class="col-md-6">
-                            <input placeholder="Picture" type="text" name="picture">
+                            <input placeholder="Categorie" type="text" name="categorie">
+                        </div>
+                        <div class="col-md-6">
+                            <input placeholder="Description" type="text" name="description">
+                        </div>
+                        <div class="col-md-6">
+                            <input placeholder="Lien Image" type="text" name="picture_url">
                         </div>
                         <div style="margin-top: 10px;" class="col-md-6">
-                            <input placeholder="Logiciel" type="text" name="logiciel">
+                            <input placeholder="Humydite" type="text" name="humydite">
                         </div>
                         <div style="margin-top: 10px;" class="col-md-6">
-                            <input placeholder="Lien" type="text" name="lien">
+                            <input placeholder="Temperature" type="text" name="temperature">
+                        </div>
+                        <div style="margin-top: 10px;" class="col-md-6">
+                            <input placeholder="Luminosite" type="text" name="luminosite">
+                        </div>
+                        <div style="margin-top: 10px;" class="col-md-6">
+                            <input placeholder="Periode" type="text" name="periode">
                         </div>
                         <div class="col-md-2">
                             <button style="margin-left:250%; margin-top:50px; width:200px" class="btn btn-danger" type="submit" value="Ok">Ok</button>

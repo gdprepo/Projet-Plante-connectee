@@ -3,7 +3,7 @@ include_once './../src/setup.php';
 include_once './layout/structure.php';
 session_start();
 try {
-        $dbh = new PDO('mysql:host=localhost;dbname=plante', 'root', 'root');
+        $dbh = new PDO('mysql:host=127.0.0.1;dbname=plante', 'root', 'root');
 } catch (PDOException $e) {
         print "Erreur !: " . $e->getMessage() . "<br/>";
         die();
