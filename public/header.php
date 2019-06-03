@@ -24,6 +24,9 @@ try {
       <li class="nav-item active">
         <a class="nav-link" href="/index.php">Acceuil<span class="sr-only">(current)</span></a>
       </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="/bdd.php">BDD<span class="sr-only">(current)</span></a>
+      </li>
 
     </ul>
   </div>

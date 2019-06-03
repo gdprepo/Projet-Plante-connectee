@@ -12,11 +12,27 @@ function loadStructure($page, $title, $data) {
         <?php include_once "header.php"?>
         <div class="container-fluid main-container">
           <div class="row">
+            <?php
+              if ($title == 'bdd') {
+                echo '
+                  <div style="margin-left: 2%; width: 65%;">
+                    <button id="demo" onclick="toggleAdmin()" type="button" class="btn btn-dark btn-admin">Modifier la BDD</button>
+                  </div> ';
+              } else {
 
-            <div>
-              <button id="demo" onclick="toggleAdmin()" type="button" class="btn btn-dark btn-admin">Modifier la BDD</button>
-            </div>
-            <div class="col-md-8">
+              }
+            ?>
+            <div class="col-md-8"
+            <?php
+              if ($title == 'accueil') {
+                echo 'style="margin-left:15%"';
+              } else {
+
+              }
+            ?>
+
+
+            >
               <?php require_once $page ?>
             </div>
           </div>
