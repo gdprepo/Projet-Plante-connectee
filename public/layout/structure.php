@@ -11,11 +11,11 @@ function loadStructure($page, $title, $data) {
       <body>
         <?php include_once "header.php"?>
         <div class="container-fluid main-container">
-          <div class="row">
+          <div style="margin-left: 15%; width: 100%;" class="row">
             <?php
               if ($title == 'bdd') {
                 echo '
-                  <div style="margin-left: 2%; width: 65%;">
+                  <div style="margin-left: 2%; width: 66%;">
                     <button id="demo" onclick="toggleAdmin()" type="button" class="btn btn-dark btn-admin">Modifier la BDD</button>
                   </div> ';
               } else {
