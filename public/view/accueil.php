@@ -22,7 +22,7 @@
           <a href="www.google.com" class="btn btn-primary" style="width:180px; margin-right:0%; margin-left:40%; margin-top:15px;">Lien</a>
         </div>
         <?php $i=1; ?>
-        <?php foreach ($data["plante"] as $array): ?>
+        <?php foreach ($data["plante"] as $array): if ($i == 30)continue;?>
         <div class="carousel-item">
           <?php $array = $data["plante"][$i++]; ?>
           <h5 class="card-header"><?php echo $array["id"];?> - <?php echo $array["name"]; ?></h5>
