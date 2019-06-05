@@ -13,4 +13,5 @@ $planteRepository = new \Plante\PlanteRepository($dbh);
 $plante = $planteRepository->fetchAll();
 $plante["plante"] = $plante;
 
+
 loadStructure('./view/accueil.php', 'accueil', $plante);

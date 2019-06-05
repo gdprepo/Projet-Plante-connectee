@@ -1,69 +1,75 @@
 <ul class="list-group">
     <?php
 
+        $index =0;
 
-        $index = rand(0, count($data["plante"])-1);
-        while ($index == $_SESSION["newsession"]) {
-            $index = rand(0, count($data["plante"])-1);
-        }
-        $index2 = $index;
         $array = $data["plante"][$index];
-        $_SESSION["newsession"] = $index2;
+
+        $_SESSION['newsession'] = $index;
     ?>
 
-    <div style="margin-left: 5%;">
-        <button id="demo" onclick="javascript:window.location.reload()" type="button" class="btn btn-dark btn-admin">Lancer le generateur de PLANTE</button>
-    </div>
-    <li class="">
-        <div class="card" style="margin:10px; padding:5px;">
-            <h5 class="card-header"><?php echo $array["id"];?> - <?php echo $array["name"]; ?></h5>
-            <div class="card-body">
-                <img class="img-fluid" src="<?php echo $array["picture_url"] ?>" style="height:250px;margin-left:1%;margin-right:auto;"><img>
-            </div>
+    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+      <div class="card carousel-inner">
+        <div class="carousel-item active">
+          <h5 class="card-header"><?php echo $array["id"];?> - <?php echo $array["name"]; ?></h5>
+          <img style="" class="d-block w-100" src="<?php echo $array["picture_url"] ?>" alt="First slide">
+          <h6 class="card-text" style="text-align:center; margin-top:10px;">Categorie : <?php echo $array["categorie"]; ?></h6>
+          <p class="card-text" style="text-align:center; margin-top:10px;">Description : <?php echo $array["description"]; ?></p>
+          <p class="card-text" style="text-align:center; margin-top:10px;">Humydite : <?php echo $array["humydite"]; ?> %</p>
+          <p class="card-text" style="text-align:center; margin-top:10px;">Temperature : <?php echo $array["temperature"]; ?> °C</p>
+          <p class="card-text" style="text-align:center; margin-top:10px;">Luminosite : <?php echo $array["luminosite"]; ?> %</p>
+          <p class="card-text" style="text-align:center; margin-top:10px;">Periode : <?php echo $array["periode"]; ?> semaine(s)</p>
+          <a href="www.google.com" class="btn btn-primary" style="width:180px; margin-right:0%; margin-left:40%; margin-top:15px;">Lien</a>
         </div>
-    </li>
-    <li class="admin-mode <?php echo "form-projet-row-" . $array["id"] ?>">
-        <div class="card-body">
-            <form action="/editProjet.php" method="post" class="form-inline">
-                <input type="hidden" name="id" value= <?php echo $array["id"]?> />
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-2">
-                            <input placeholder="Titre" type="text" name="name" value="<?php echo $array["name"]; ?>">
-                        </div>
-                        <div class="col-md-2">
-                            <input placeholder="Lien Image" type="text" name="picture_url" value="<?php echo $array["picture_url"]; ?>">
-                        <div class="col-md-2">
-                            <button class="btn btn-danger" type="submit" value="Ok">Ok</button>
-                        </div>
-                        <div class="col-md-2">
-                            <button class="btn btn-danger" type="button" value="Cancel" onclick="toogleProjetForm(<?php echo  $array['id'] ?>)">Cancel</button>
-                        </div>
-                    </div>
-                </div>
-            </form>
+        <?php $i=1; ?>
+        <?php foreach ($data["plante"] as $array): ?>
+        <div class="carousel-item">
+          <?php $array = $data["plante"][$i++]; ?>
+          <h5 class="card-header"><?php echo $array["id"];?> - <?php echo $array["name"]; ?></h5>
+          <img style="" class="d-block w-100" src="<?php echo $array["picture_url"] ?>" alt="First slide">
+          <h6 class="card-text" style="text-align:center; margin-top:10px;">Categorie : <?php echo $array["categorie"]; ?></h6>
+          <p class="card-text" style="text-align:center; margin-top:10px;">Description : <?php echo $array["description"]; ?></p>
+          <p class="card-text" style="text-align:center; margin-top:10px;">Humydite : <?php echo $array["humydite"]; ?> %</p>
+          <p class="card-text" style="text-align:center; margin-top:10px;">Temperature : <?php echo $array["temperature"]; ?> °C</p>
+          <p class="card-text" style="text-align:center; margin-top:10px;">Luminosite : <?php echo $array["luminosite"]; ?> %</p>
+          <p class="card-text" style="text-align:center; margin-top:10px;">Periode : <?php echo $array["periode"]; ?> semaine(s)</p>
+          <a href="www.google.com" class="btn btn-primary" style="width:180px; margin-right:0%; margin-left:40%; margin-top:15px;">Lien</a>
         </div>
-    </li>
-    <div class="card admin-mode" style="margin:10px; padding:5px;">
-        <li class="list-group-item">
-            <form action="/addProjet.php" method="post" class="form-inline">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-2">
-                            <input placeholder="Titre" type="text" name="name">
-                        </div>
-                        <div class="col-md-2">
-                            <input placeholder="Picture" type="text" name="picture_url">
-                        </div>
-                        <div class="col-md-2">
-                            <button class="btn btn-danger" type="submit" value="Ok">Ok</button>
-                        </div>
-                    </div>
-                </div>
-            </form>
-        </li>
+        <?php endforeach;?>
+
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
     </div>
 </ul>
+<?php
+    function precedent()
+    {
+      --$index;
+    }
+
+    function suivant()
+    {
+        echo "okok";
+        ++$index;
+        if ($index == 0) {
+            $index = 30;
+        }
+    }
+
+    if(array_key_exists('demo', $_POST)) {
+        precedent();
+    } elseif (array_key_exists('demo2', $_POST)) {
+        suivant();
+    }
+
+?>
 <script>
     function toogleProjetForm(id) {
         $('.projet-row-' + id).toggle();

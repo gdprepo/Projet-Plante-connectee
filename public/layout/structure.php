@@ -22,17 +22,7 @@ function loadStructure($page, $title, $data) {
 
               }
             ?>
-            <div class="col-md-8"
-            <?php
-              if ($title == 'accueil') {
-                echo 'style="margin-left:15%"';
-              } else {
-
-              }
-            ?>
-
-
-            >
+            <div class="col-md-8">
               <?php require_once $page ?>
             </div>
           </div>
